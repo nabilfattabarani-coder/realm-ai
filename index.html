@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #06110d;
-    --bg-soft: #0b1a15;
+    --bg: #000000;
+    --bg-soft: #0a0a0a;
     --mint: #6ee7b7;
     --cyan: #22d3ee;
     --text: #eaf3ee;
     --muted: #7c9089;
-    --card: #0e211a;
-    --border: #16342a;
+    --card: #121212;
+    --border: #262626;
   }
   * { box-sizing: border-box; }
   body {
@@ -27,15 +27,7 @@
     position: relative;
     overflow-x: hidden;
   }
-  .glow-bg {
-    position: fixed;
-    top: -20%; left: 50%;
-    transform: translateX(-50%);
-    width: 900px; height: 900px;
-    background: radial-gradient(circle, rgba(110,231,183,0.10) 0%, rgba(34,211,238,0.05) 40%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
+
   header {
     display: flex;
     align-items: center;
