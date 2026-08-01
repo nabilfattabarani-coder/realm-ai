@@ -228,17 +228,37 @@
     font-family: 'IBM Plex Mono', monospace;
     padding: 30px 0 10px;
   }
+.orb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
 </head>
 <body>
+   <div class="glow-bg"></div>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="biosinc-logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4"/>
+      <path d="M35 28 Q45 40 35 50 Q25 60 35 72" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M50 25 Q60 38 50 50 Q40 62 50 75" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      <path d="M65 28 Q75 40 65 50 Q55 60 65 72" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    </symbol>
+  </svg>
   <header>
-    <div class="brand"><span class="dot"></span>biosinc.ai</div>
+    <div class="brand">
+  <svg width="20" height="20" style="color:var(--mint)"><use href="#biosinc-logo"/></svg>
+  biosinc.ai
+    </div>
     <div class="by-line">by Enhanced Tech</div>
   </header>
 
   <main>
     <div class="hero" id="hero">
-      <div class="orb" id="orb"></div>
+      <div class="orb" id="orb">
+  <svg width="30" height="30" style="color:#06110d"><use href="#biosinc-logo"/></svg>
+      </div>
       <h1>Tanya apa saja</h1>
       <div class="tagline">Biosinc.ai mencari, membaca, lalu menjawab dengan sumber.</div>
 
