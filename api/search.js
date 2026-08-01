@@ -19,9 +19,6 @@ export default async function handler(req, res) {
           contents: [
             { role: 'user', parts: [{ text: query }] }
           ],
-          tools: [
-            { google_search: {} }
-          ],
           system_instruction: {
             parts: [{
               text: `Kamu adalah Biosinc.ai, mesin pencari AI. Jawab pertanyaan berdasarkan hasil pencarian web terkini secara singkat, jelas, dan faktual dalam Bahasa Indonesia. Jangan pakai markdown seperti ** atau ###, tulis dalam paragraf biasa. Maksimal 5-6 kalimat kecuali pertanyaannya butuh detail lebih.`
