@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biosinc.ai — Cari, tanya, temukan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #06110d;
+    --bg-soft: #0b1a15;
+    --mint: #6ee7b7;
+    --cyan: #22d3ee;
+    --text: #eaf3ee;
+    --muted: #7c9089;
+    --card: #0e211a;
+    --border: #16342a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .glow-bg {
+    position: fixed;
+    top: -20%; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(110,231,183,0.10) 0%, rgba(34,211,238,0.05) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--mint);
+    box-shadow: 0 0 12px 2px var(--mint);
+  }
+  .by-line {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+  }
+  main {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .hero {
+    min-height: 62vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: min-height 0.4s ease;
+  }
+  .hero.compact {
+    min-height: 0;
+    padding: 30px 0 20px;
+  }
+  .orb {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    margin-bottom: 22px;
+    background: radial-gradient(circle at 35% 30%, var(--cyan), var(--mint) 60%, transparent 100%);
+    box-shadow: 0 0 40px 6px rgba(110,231,183,0.35);
+    animation: pulse 3.5s ease-in-out infinite;
+  }
+  .hero.compact .orb { width: 28px; height: 28px; margin-bottom: 0; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.85; }
+  }
+  .orb.thinking { animation: pulse 0.9s ease-in-out infinite; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    letter-spacing: -0.02em;
+  }
+  .hero.compact h1 { display: none; }
+  .tagline {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 34px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .hero.compact .tagline { display: none; }
+  .search-wrap {
+    width: 100%;
+    position: relative;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 4px 4px 4px 18px;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus-within {
+    border-color: var(--mint);
+  }
+  #q {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 15.5px;
+    font-family: 'Inter', sans-serif;
+    padding: 14px 8px;
+  }
+  #q::placeholder { color: var(--muted); }
+  #askBtn {
+    background: var(--mint);
+    color: #06110d;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  #askBtn:disabled { opacity: 0.5; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 7px 14px;
+    cursor: pointer;
+    background: var(--bg-soft);
+  }
+  .chip:hover { border-color: var(--mint); color: var(--mint); }
+
+  #results { display: none; }
+  #results.show { display: block; }
+
+  .answer-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .answer-card .q-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--mint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .sources-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px 4px;
+  }
+  .source-card {
+    display: block;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 16px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13.5px;
+  }
+  .source-card .n {
+    color: var(--mint);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+  .source-card .domain {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 3px;
+  }
+  .loading-text {
+    text-align: center;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    margin-top: 16px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 30px 0 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="glow-bg"></div>
+  <header>
+    <div class="brand"><span class="dot"></span>biosinc.ai</div>
+    <div class="by-line">by Enhanced Tech</div>
+  </header>
+
+  <main>
+    <div class="hero" id="hero">
+      <div class="orb" id="orb"></div>
+      <h1>Tanya apa saja</h1>
+      <div class="tagline">Biosinc.ai mencari, membaca, lalu menjawab dengan sumber.</div>
+
+      <div class="search-wrap">
+        <div class="search-box">
+          <input id="q" type="text" placeholder="Tanya sesuatu..." autocomplete="off">
+          <button id="askBtn">Cari</button>
+        </div>
+        <div class="chips">
+          <div class="chip" data-q="Apa berita teknologi hari ini?">Berita hari ini</div>
+          <div class="chip" data-q="Apa itu efek rumah kaca?">Efek rumah kaca</div>
+          <div class="chip" data-q="Siapa presiden Indonesia saat ini?">Presiden RI</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="results">
+      <div class="answer-card">
+        <div class="q-label" id="qLabel"></div>
+        <div id="answerText"></div>
+      </div>
+      <div id="sourcesBlock"></div>
+    </div>
+  </main>
+
+  <footer>Biosinc.ai · ditenagai Gemini · dibangun oleh Enhanced Tech</footer>
+
+<script>
+const API_URL = "https://biosinc-ai.vercel.app/api/search"; // ganti sesuai URL vercel kamu nanti
+
+const hero = document.getElementById('hero');
+const orb = document.getElementById('orb');
+const q = document.getElementById('q');
+const askBtn = document.getElementById('askBtn');
+const results = document.getElementById('results');
+const answerText = document.getElementById('answerText');
+const qLabel = document.getElementById('qLabel');
+const sourcesBlock = document.getElementById('sourcesBlock');
+
+function setLoading(isLoading) {
+  askBtn.disabled = isLoading;
+  askBtn.textContent = isLoading ? '...' : 'Cari';
+  orb.classList.toggle('thinking', isLoading);
+}
+
+async function ask(query) {
+  if (!query.trim()) return;
+  hero.classList.add('compact');
+  results.classList.add('show');
+  qLabel.textContent = query;
+  answerText.innerHTML = '<div class="loading-text">Mencari dan membaca sumber...</div>';
+  sourcesBlock.innerHTML = '';
+  setLoading(true);
+
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query })
+    });
+    const data = await res.json();
+
+    answerText.innerHTML = (data.answer || 'Maaf, tidak ada jawaban.').replace(/\n/g, '<br>');
+
+    if (data.sources && data.sources.length > 0) {
+      let html = '<div class="sources-label">Sumber</div>';
+      data.sources.forEach((s, i) => {
+        let domain = '';
+        try { domain = new URL(s.uri).hostname.replace('www.', ''); } catch(e) {}
+        html += `<a class="source-card" href="${s.uri}" target="_blank" rel="noopener">
+          <span class="n">${i + 1}</span>${s.title || s.uri}
+          <div class="domain">${domain}</div>
+        </a>`;
+      });
+      sourcesBlock.innerHTML = html;
+    }
+  } catch (err) {
+    answerText.textContent = 'Terjadi kesalahan koneksi ke server.';
+  } finally {
+    setLoading(false);
+  }
+}
+
+askBtn.addEventListener('click', () => ask(q.value));
+q.addEventListener('keypress', (e) => { if (e.key === 'Enter') ask(q.value); });
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    q.value = chip.dataset.q;
+    ask(chip.dataset.q);
+  });
+});
+</script>
+</body>
+</html>
