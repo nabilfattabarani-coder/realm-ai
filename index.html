@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biosinc.ai — Cari, tanya, temukan</title>
+<meta name="description" content="Realm - Ask anything, in any language. AI-powered search and answers.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Realm - Ask, search, discover</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #000000;
     --bg-soft: #0a0a0a;
-    --mint: #6ee7b7;
-    --cyan: #22d3ee;
-    --text: #eaf3ee;
-    --muted: #7c9089;
+    --accent: #ffffff;
+    --accent-dim: #cfcfcf;
+    --text: #f2f2f2;
+    --muted: #8a8a8a;
     --card: #121212;
-    --border: #262626;
+    --border: #2a2a2a;
   }
   * { box-sizing: border-box; }
   body {
@@ -45,12 +50,27 @@
     align-items: center;
     gap: 8px;
   }
-  .brand .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--mint);
-    box-shadow: 0 0 12px 2px var(--mint);
+  .brand img { display: block; height: 20px; width: auto; }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
   }
+  .icon-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  .icon-btn:hover { border-color: var(--accent); }
+  .icon-btn svg { width: 16px; height: 16px; }
   .by-line {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
@@ -81,10 +101,14 @@
     width: 46px; height: 46px;
     border-radius: 50%;
     margin-bottom: 22px;
-    background: radial-gradient(circle at 35% 30%, var(--cyan), var(--mint) 60%, transparent 100%);
-    box-shadow: 0 0 40px 6px rgba(110,231,183,0.35);
+    background: radial-gradient(circle at 35% 30%, #ffffff, #d9d9d9 60%, transparent 100%);
+    box-shadow: 0 0 40px 6px rgba(255,255,255,0.25);
     animation: pulse 3.5s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .orb img { width: 55%; height: 55%; object-fit: contain; }
   .hero.compact .orb { width: 28px; height: 28px; margin-bottom: 0; }
   @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
@@ -120,7 +144,7 @@
     transition: border-color 0.2s;
   }
   .search-box:focus-within {
-    border-color: var(--mint);
+    border-color: var(--accent);
   }
   #q {
     flex: 1;
@@ -131,11 +155,12 @@
     font-size: 15.5px;
     font-family: 'Inter', sans-serif;
     padding: 14px 8px;
+    min-width: 0;
   }
   #q::placeholder { color: var(--muted); }
   #askBtn {
-    background: var(--mint);
-    color: #06110d;
+    background: var(--accent);
+    color: #0a0a0a;
     border: none;
     border-radius: 10px;
     padding: 11px 20px;
@@ -143,8 +168,9 @@
     font-size: 14px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
   }
-  #askBtn:disabled { opacity: 0.5; }
+  #askBtn:disabled { opacity: 0.5; cursor: default; }
   .chips {
     display: flex;
     flex-wrap: wrap;
@@ -162,7 +188,7 @@
     cursor: pointer;
     background: var(--bg-soft);
   }
-  .chip:hover { border-color: var(--mint); color: var(--mint); }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
 
   #results { display: none; }
   #results.show { display: block; }
@@ -175,11 +201,12 @@
     margin-bottom: 20px;
     line-height: 1.7;
     font-size: 15px;
+    overflow-wrap: anywhere;
   }
   .answer-card .q-label {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    color: var(--mint);
+    color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 10px;
@@ -202,9 +229,10 @@
     text-decoration: none;
     color: var(--text);
     font-size: 13.5px;
+    overflow-wrap: anywhere;
   }
   .source-card .n {
-    color: var(--mint);
+    color: var(--accent);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
     margin-right: 6px;
@@ -228,49 +256,111 @@
     font-family: 'IBM Plex Mono', monospace;
     padding: 30px 0 10px;
   }
-.orb {
+
+  /* History panel */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .overlay.show { display: flex; }
+  .history-panel {
+    background: var(--bg-soft);
+    border-left: 1px solid var(--border);
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .history-head {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .history-head h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    margin: 0;
+  }
+  .history-actions { display: flex; gap: 8px; }
+  .text-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 4px 0;
+  }
+  .text-btn:hover { color: var(--accent); }
+  .history-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .history-item:hover { border-color: var(--accent); }
+  .history-item .h-time {
+    display: block;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    margin-top: 4px;
+  }
+  .history-empty {
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 30px;
   }
 </style>
 </head>
 <body>
-   <div class="glow-bg"></div>
 
-  <svg width="0" height="0" style="position:absolute">
-    <symbol id="biosinc-logo" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4"/>
-      <path d="M35 28 Q45 40 35 50 Q25 60 35 72" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-      <path d="M50 25 Q60 38 50 50 Q40 62 50 75" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-      <path d="M65 28 Q75 40 65 50 Q55 60 65 72" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-    </symbol>
-  </svg>
   <header>
     <div class="brand">
-  <svg width="20" height="20" style="color:var(--mint)"><use href="#biosinc-logo"/></svg>
-  biosinc.ai
+      <img src="data:image/png;base64,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" alt="Realm logo">
+      Realm
     </div>
-    <div class="by-line">by Enhanced Tech</div>
+    <div class="header-right">
+      <button id="historyBtn" class="icon-btn" title="History" aria-label="Open conversation history">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </button>
+      <div class="by-line">by Enhanced Tech</div>
+    </div>
   </header>
 
   <main>
     <div class="hero" id="hero">
       <div class="orb" id="orb">
-  <svg width="30" height="30" style="color:#06110d"><use href="#biosinc-logo"/></svg>
+        <img src="data:image/png;base64,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" alt="">
       </div>
-      <h1>Ask Biosinc.ai</h1>
+      <h1>Ask Realm</h1>
       <div class="tagline">Where knowledge begins</div>
 
       <div class="search-wrap">
         <div class="search-box">
-          <input id="q" type="text" placeholder="Tanya sesuatu..." autocomplete="off">
-          <button id="askBtn">Cari</button>
+          <input id="q" type="text" placeholder="Ask anything, in any language..." autocomplete="off" maxlength="2000">
+          <button id="askBtn">Search</button>
         </div>
         <div class="chips">
-          <div class="chip" data-q="Apa berita teknologi hari ini?">Berita hari ini</div>
-          <div class="chip" data-q="Apa itu efek rumah kaca?">Efek rumah kaca</div>
-          <div class="chip" data-q="Siapa presiden Indonesia saat ini?">Presiden RI</div>
+          <div class="chip" data-q="What are today's top tech news stories?">Tech news today</div>
+          <div class="chip" data-q="Explain the greenhouse effect in simple terms.">Greenhouse effect</div>
+          <div class="chip" data-q="What are the latest breakthroughs in AI?">Latest AI breakthroughs</div>
         </div>
       </div>
     </div>
@@ -284,11 +374,38 @@
     </div>
   </main>
 
-  <footer>powered by Gemini • devloped by Enhanced Tech</footer>
+  <footer>powered by Gemini &bull; developed by Enhanced Tech</footer>
+
+  <div class="overlay" id="historyOverlay">
+    <div class="history-panel">
+      <div class="history-head">
+        <h2>History</h2>
+        <div class="history-actions">
+          <button class="text-btn" id="clearHistoryBtn">Clear</button>
+          <button class="text-btn" id="closeHistoryBtn">Close</button>
+        </div>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </div>
 
 <script>
-const API_URL = "https://biosinc-ai.vercel.app/api/search"; // ganti sesuai URL vercel kamu nanti
+'use strict';
 
+// ---- Config ----
+// Relative path keeps this working on any domain the app is deployed to
+// (production, preview deployments, custom domains) without edits, and
+// keeps the CSP connect-src restricted to 'self'. If your API route lives
+// on a different origin, change this to an absolute URL and update the
+// connect-src value in the CSP <meta> tag above to match.
+const API_URL = "/api/search";
+const HISTORY_KEY = "realm_conversations";
+const MAX_HISTORY = 30;
+const MAX_QUERY_LENGTH = 2000;
+const REQUEST_TIMEOUT_MS = 30000;
+const MIN_MS_BETWEEN_REQUESTS = 1000;
+
+// ---- Elements ----
 const hero = document.getElementById('hero');
 const orb = document.getElementById('orb');
 const q = document.getElementById('q');
@@ -297,54 +414,203 @@ const results = document.getElementById('results');
 const answerText = document.getElementById('answerText');
 const qLabel = document.getElementById('qLabel');
 const sourcesBlock = document.getElementById('sourcesBlock');
+const historyBtn = document.getElementById('historyBtn');
+const historyOverlay = document.getElementById('historyOverlay');
+const historyList = document.getElementById('historyList');
+const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+const closeHistoryBtn = document.getElementById('closeHistoryBtn');
 
-function setLoading(isLoading) {
-  askBtn.disabled = isLoading;
-  askBtn.textContent = isLoading ? '...' : 'Cari';
-  orb.classList.toggle('thinking', isLoading);
+let isLoading = false;
+let lastRequestAt = 0;
+
+// ---- Security helpers ----
+// Escape everything before it ever touches innerHTML. The API response is
+// untrusted input (it can reflect web search results or model output that
+// may itself have been targeted by prompt injection), so it is treated the
+// same as any other untrusted string: never inserted as raw HTML.
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
 }
 
-async function ask(query) {
-  if (!query.trim()) return;
+// Only allow http/https links to be rendered as clickable sources.
+// Blocks javascript:, data:, and other schemes a manipulated response
+// could try to smuggle in.
+function safeUrl(url) {
+  try {
+    const u = new URL(url, window.location.href);
+    if (u.protocol === 'http:' || u.protocol === 'https:') return u.href;
+  } catch (e) {}
+  return null;
+}
+
+// ---- History (stored locally in this browser only) ----
+function loadHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveToHistory(entry) {
+  try {
+    const list = loadHistory();
+    list.unshift(entry);
+    while (list.length > MAX_HISTORY) list.pop();
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list));
+  } catch (e) {
+    // Storage may be unavailable (private browsing, quota exceeded, etc).
+    // Conversation memory is a convenience feature, so fail silently.
+  }
+}
+
+function renderHistoryList() {
+  const list = loadHistory();
+  if (list.length === 0) {
+    historyList.innerHTML = '<div class="history-empty">No past conversations yet.</div>';
+    return;
+  }
+  historyList.innerHTML = '';
+  list.forEach((entry) => {
+    const btn = document.createElement('button');
+    btn.className = 'history-item';
+    btn.type = 'button';
+    const qSpan = document.createElement('span');
+    qSpan.textContent = entry.query;
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 'h-time';
+    timeSpan.textContent = new Date(entry.timestamp).toLocaleString();
+    btn.appendChild(qSpan);
+    btn.appendChild(timeSpan);
+    btn.addEventListener('click', () => {
+      renderConversation(entry);
+      closeHistory();
+    });
+    historyList.appendChild(btn);
+  });
+}
+
+function openHistory() {
+  renderHistoryList();
+  historyOverlay.classList.add('show');
+}
+function closeHistory() {
+  historyOverlay.classList.remove('show');
+}
+
+historyBtn.addEventListener('click', openHistory);
+closeHistoryBtn.addEventListener('click', closeHistory);
+historyOverlay.addEventListener('click', (e) => {
+  if (e.target === historyOverlay) closeHistory();
+});
+clearHistoryBtn.addEventListener('click', () => {
+  localStorage.removeItem(HISTORY_KEY);
+  renderHistoryList();
+});
+
+// ---- Rendering ----
+function renderConversation(entry) {
+  hero.classList.add('compact');
+  results.classList.add('show');
+  q.value = entry.query;
+  qLabel.textContent = entry.query;
+  answerText.innerHTML = escapeHtml(entry.answer || 'No answer available.').replace(/\n/g, '<br>');
+  renderSources(entry.sources || []);
+}
+
+function renderSources(sources) {
+  if (!sources || sources.length === 0) {
+    sourcesBlock.innerHTML = '';
+    return;
+  }
+  let html = '<div class="sources-label">Sources</div>';
+  sources.forEach((s, i) => {
+    const url = safeUrl(s.uri);
+    const title = escapeHtml(s.title || s.uri || 'Untitled source');
+    let domain = '';
+    if (url) {
+      try { domain = new URL(url).hostname.replace('www.', ''); } catch (e) {}
+    }
+    if (url) {
+      html += `<a class="source-card" href="${url}" target="_blank" rel="noopener noreferrer">` +
+        `<span class="n">${i + 1}</span>${title}` +
+        `<div class="domain">${escapeHtml(domain)}</div></a>`;
+    } else {
+      html += `<div class="source-card"><span class="n">${i + 1}</span>${title}</div>`;
+    }
+  });
+  sourcesBlock.innerHTML = html;
+}
+
+function setLoading(loading) {
+  isLoading = loading;
+  askBtn.disabled = loading;
+  askBtn.textContent = loading ? '...' : 'Search';
+  orb.classList.toggle('thinking', loading);
+}
+
+// ---- Ask flow ----
+async function ask(rawQuery) {
+  const query = String(rawQuery || '').trim().slice(0, MAX_QUERY_LENGTH);
+  if (!query) return;
+  if (isLoading) return;
+  const now = Date.now();
+  if (now - lastRequestAt < MIN_MS_BETWEEN_REQUESTS) return;
+  lastRequestAt = now;
+
   hero.classList.add('compact');
   results.classList.add('show');
   qLabel.textContent = query;
-  answerText.innerHTML = '<div class="loading-text">Mencari dan membaca sumber...</div>';
+  answerText.innerHTML = '<div class="loading-text">Searching and reading sources...</div>';
   sourcesBlock.innerHTML = '';
   setLoading(true);
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query }),
+      signal: controller.signal
     });
+
+    if (!res.ok) throw new Error('Request failed with status ' + res.status);
     const data = await res.json();
 
-    answerText.innerHTML = (data.answer || 'Maaf, tidak ada jawaban.').replace(/\n/g, '<br>');
+    const answer = typeof data.answer === 'string' ? data.answer : 'Sorry, no answer was found.';
+    const sources = Array.isArray(data.sources) ? data.sources : [];
 
-    if (data.sources && data.sources.length > 0) {
-      let html = '<div class="sources-label">Sumber</div>';
-      data.sources.forEach((s, i) => {
-        let domain = '';
-        try { domain = new URL(s.uri).hostname.replace('www.', ''); } catch(e) {}
-        html += `<a class="source-card" href="${s.uri}" target="_blank" rel="noopener">
-          <span class="n">${i + 1}</span>${s.title || s.uri}
-          <div class="domain">${domain}</div>
-        </a>`;
-      });
-      sourcesBlock.innerHTML = html;
-    }
+    answerText.innerHTML = escapeHtml(answer).replace(/\n/g, '<br>');
+    renderSources(sources);
+
+    saveToHistory({
+      id: Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+      timestamp: new Date().toISOString(),
+      query,
+      answer,
+      sources
+    });
   } catch (err) {
-    answerText.textContent = 'Terjadi kesalahan koneksi ke server.';
+    if (err.name === 'AbortError') {
+      answerText.textContent = 'The request took too long and was cancelled. Please try again.';
+    } else {
+      answerText.textContent = 'A connection error occurred. Please try again.';
+    }
   } finally {
+    clearTimeout(timeout);
     setLoading(false);
   }
 }
 
 askBtn.addEventListener('click', () => ask(q.value));
 q.addEventListener('keypress', (e) => { if (e.key === 'Enter') ask(q.value); });
-document.querySelectorAll('.chip').forEach(chip => {
+document.querySelectorAll('.chip').forEach((chip) => {
   chip.addEventListener('click', () => {
     q.value = chip.dataset.q;
     ask(chip.dataset.q);
